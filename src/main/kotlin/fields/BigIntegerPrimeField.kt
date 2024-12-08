@@ -8,7 +8,7 @@ import java.security.SecureRandom
 
 class BigIntegerPrimeField(override val characteristic: BigInteger) : PrimeField<BigInteger> {
     init {
-        characteristic.isPrime()
+        require(characteristic.isPrime()) { "Cannot create finite field of characteristic $characteristic" }
     }
 
     override val zero: BigInteger = BigInteger.ZERO

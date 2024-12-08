@@ -9,7 +9,7 @@ import kotlin.math.absoluteValue
 
 class LongPrimeField(override val characteristic: Long) : PrimeField<Long> {
     init {
-        characteristic.isPrime()
+        require(characteristic.isPrime()) { "Cannot create finite field of characteristic $characteristic" }
     }
 
     override val zero = 0L
